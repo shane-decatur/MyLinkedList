@@ -5,7 +5,7 @@ public class Node{
  private String data;
  private Node next,prev;
 
- public String get(){
+ public String getData(){
    return data;
  }
  public void set(String value){
@@ -13,16 +13,16 @@ public class Node{
  }
 
  public String getNext(){
-   return next.get();
+   return next;
  }
- public void setNext(String value){
-   next.set(value);
+ public void setNext(Node n){
+   next = n;
  }
 
  public String getPrev(){
-   return prev.get();
+   return prev;
  }
- public void setPrev(String value){
-   prev.set(value);
+ public void setPrev(Node n){
+   prev = n;
  }
 }
