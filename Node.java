@@ -12,14 +12,14 @@ public class Node{
    data = value;
  }
 
- public String getNext(){
+ public Node getNext(){
    return next;
  }
  public void setNext(Node n){
    next = n;
  }
 
- public String getPrev(){
+ public Node getPrev(){
    return prev;
  }
  public void setPrev(Node n){
