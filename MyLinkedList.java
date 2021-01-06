@@ -8,6 +8,18 @@ public class MyLinkedList{
    return size;
  }
  public boolean add(String value){
+   if (size == 0){
+     start = new Node(value);
+     end = start;
+     size++;
+   }
+   else{
+     Node temp = end;
+     end.setNext(new Node(value));
+     end = end.getNext();
+     end.setPrev(temp);
+     size++;
+   }
    return true;
  }
  public void add(int index, String value){
@@ -21,9 +33,9 @@ public class MyLinkedList{
  }
  public String toString(){
    String list = "[";
+   if (size > 0) list = list+start.getValue();
    Node current = start;
-   if (size > 0) list = list+current.getValue();
-   while (current.getNext() != null){
+   while (current != null && current.getNext() != null){
      current = current.getNext();
      list = list+", "+current.getValue();
    }
