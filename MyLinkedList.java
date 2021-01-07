@@ -66,12 +66,57 @@ public class MyLinkedList{
    n.setData(value);
    return temp;
  }
+
+ public String remove(int index){
+   if (index < 0 || index >= size){
+     throw new IndexOutOfBoundsException();
+   }
+   Node n = findIndex(index);
+   if (size == 1){
+     start = null;
+     end = null;
+     size = 0;
+   }
+   else if (n == start){
+     start = n.getNext();
+     start.setPrev(null);
+     n.setNext(null);
+     size--;
+   }
+   else if (n == end){
+     end = n.getPrev();
+     end.setNext(null);
+     n.setPrev(null);
+     size--;
+   }
+   else{
+     n.getPrev().setNext(n.getNext());
+     n.getNext().setPrev(n.getPrev());
+     n.setNext(null);
+     n.setPrev(null);
+     size--;
+   }
+   return n.getData();
+ }
+
  public String toString(){
    String list = "[";
    if (size > 0) list = list+start.getData();
    Node current = start;
    while (current != null && current.getNext() != null){
      current = current.getNext();
+     list = list+", "+current.getData();
+   }
+   list = list+"]";
+   return list;
+ }
+
+ private String toStringReversed(){
+   String list = "[";
+   if (size > 0) list = list+end.getData();
+   Node current = end;
+   while (current != null && current.getPrev() != null){
+     current = current.getPrev();
      list = list+", "+current.getData();
    }
    list = list+"]";
