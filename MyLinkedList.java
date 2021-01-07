@@ -51,18 +51,22 @@ public class MyLinkedList{
    }
  }
  public String get(int index){
-   return null;
+   if (index < 0 || index >= size){
+     throw new IndexOutOfBoundsException();
+   }
+   Node n = findIndex(index);
+   return n.getData();
  }
  public String set(int index, String value){
    return null;
  }
  public String toString(){
    String list = "[";
-   if (size > 0) list = list+start.getValue();
+   if (size > 0) list = list+start.getData();
    Node current = start;
    while (current != null && current.getNext() != null){
      current = current.getNext();
-     list = list+", "+current.getValue();
+     list = list+", "+current.getData();
    }
    list = list+"]";
    return list;
