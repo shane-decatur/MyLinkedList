@@ -58,7 +58,13 @@ public class MyLinkedList{
    return n.getData();
  }
  public String set(int index, String value){
-   return null;
+   if (index < 0 || index > size){
+     throw new IndexOutOfBoundsException();
+   }
+   Node n = findIndex(index);
+   String temp = n.getData();
+   n.setData(value);
+   return temp;
  }
  public String toString(){
    String list = "[";
