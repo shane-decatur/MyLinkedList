@@ -8,7 +8,7 @@ public class Node{
  public String getData(){
    return data;
  }
- public void set(String value){
+ public void setData(String value){
    data = value;
  }
 

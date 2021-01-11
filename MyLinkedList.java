@@ -126,7 +126,7 @@ public class MyLinkedList{
    return list;
  }
 
- public String toStringReversed(){
+ private String toStringReversed(){
    String list = "[";
    if (size > 0) list = list+end.getData();
    Node current = end;
