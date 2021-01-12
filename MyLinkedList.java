@@ -63,7 +63,7 @@ public class MyLinkedList{
  }
 
  public String set(int index, String value){
-   if (index < 0 || index > size){
+   if (index < 0 || index >= size){
      throw new IndexOutOfBoundsException();
    }
    Node n = findIndex(index);
@@ -126,7 +126,7 @@ public class MyLinkedList{
    return list;
  }
 
- private String toStringReversed(){
+ public String toStringReversed(){
    String list = "[";
    if (size > 0) list = list+end.getData();
    Node current = end;
