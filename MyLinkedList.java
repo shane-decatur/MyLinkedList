@@ -105,13 +105,22 @@ public class MyLinkedList{
  }
 
  public void extend(MyLinkedList other){
-   end.setNext(other.start);
-   end.getNext().setPrev(end);
-   end = other.end;
-   size += other.size();
-   other.start = null;
-   other.end = null;
-   other.size = 0;
+   if (other.size() > 0){
+     if (size == 0){
+       start = other.start;
+       end = other.end;
+       size += other.size();
+     }
+     else{
+       end.setNext(other.start);
+       end.getNext().setPrev(end);
+       end = other.end;
+       size += other.size();
+     }
+     other.start = null;
+     other.end = null;
+     other.size = 0;
+   }
  }
 
  public String toString(){
